@@ -1,0 +1,136 @@
+﻿<html>
+<head>
+    <title>OMDB - Search</title>
+</head>
+
+<body>
+    <div class="container search-window">
+      <h1>Welcome</h1>
+      <h3> What movie are you looking for?</h3>
+      <div class="jumbotron">
+        <form id="searchForm">
+            <div class="form-group">
+                <input type="text" id="movieTitle" placeholder="Type the name of your movie" />
+            </div>
+            <div class="form-group">
+                <input type="number" id="movieYear" min="1880" placeholder="Release Year"/>
+            </div>
+            <input id="submitBtn" type="submit" class="btn"/>
+        </form>
+     </div>
+        <div id="errorDiv" class="alert alert-danger" role="alert" hidden>...</div>
+      <div class="row">
+        
+          <div id="searchResultsDiv" class="col-lg-12" hidden>
+            <div class="table-responsive table-hover">
+                <table class="table" id="movieSearchTable">
+                    <tr>
+                        <th>Title</th>
+                        <th>Year</th>
+                        <th>More Info</th>
+                    </tr>
+                    
+                </table>
+                <h5 id="resultCount">Showing page 0 of 0</h5>
+                <ul class="pager">
+                    <li class="previous"><button id="prevBtn" disabled>Previous</button></li>
+                    <li class="next"><button id="nextBtn" disabled>Next</button></li>
+                </ul>
+            </div>
+        </div>
+      </div>
+
+    </div> <!-- /container -->
+    
+    <div class="modal fade" id="movieModal" tabindex="-1" role="dialog" aria-labelledby="movieModal" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h1 class="modal-title" id="movieModal-title">No Title...</h1>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <a href="#" class="thumbnail">
+                                <img id="movieModal-poster" src="" alt="No Poster for Movie...">
+                            </a>
+                        </div>
+                    </div>
+                    <div id="infoTableDiv" class="row" hidden>
+                        <div class="col-xs-12">
+                            <dl class="dl-horizontal">
+                                <dt>Rating:</dt>
+                                <dd>
+                                    <table class="table table-hover table-condensed">
+                                        <tbody id="movieModal-rating">
+                                            <tr>
+                                                <th>Source</th>
+                                                <th>Rating</th>
+                                            </tr>
+                                            <tr id="rating-imdb">
+                                                <td id="title"></td>
+                                                <td id="rating"></td>
+                                            </tr>
+                                            <tr id="rating-tomato">
+                                                <td id="title"></td>
+                                                <td id="rating"></td>
+                                            </tr>
+                                            <tr id="rating-meta">
+                                                <td id="title"></td>
+                                                <td id="rating"></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </dd>
+                                <dt>Release Year:</dt>
+                                <dd id="movieModal-year">...</dd>
+                                <dt>Rated: </dt>
+                                <dd id="movieModal-rated">...</dd>
+                                <dt>Genre:</dt>
+                                <dd id="movieModal-genre">...</dd>
+                                <dt>Runtime:</dt>
+                                <dd id="movieModal-runtime">...</dd>
+                                <dt>Director:</dt>
+                                <dd id="movieModal-director">...</dd>
+                                <dt>Writer:</dt>
+                                <dd id="movieModal-writer">...</dd>
+                                <dt>Language:</dt>
+                                <dd id="movieModal-language">...</dd>
+                                <dt>Country:</dt>
+                                <dd id="movieModal-country">...</dd>
+                                <dt>Awards:</dt>
+                                <dd id="movieModal-awards">...</dd>
+                                <dt>Box Office:</dt>
+                                <dd id="movieModal-boxoffice">...</dd>
+                                <dt>DVD Release Date:</dt>
+                                <dd id="movieModal-dvd">...</dd>
+                                <dt>Production:</dt>
+                                <dd id="movieModal-production">...</dd>
+                                <dt>Website:</dt>
+                                <dd id="movieModal-website">...</dd>
+                            </dl>
+                        </div>
+                    </div>
+                    
+                </div>
+
+                <div id="plotSummaryDiv" class="modal-body" hidden>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Plot Summary</h3>
+                        </div>
+                        <div id="movieModal-plot"class="panel-body">
+                            Panel content
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
